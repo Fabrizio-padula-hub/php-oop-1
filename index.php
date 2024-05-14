@@ -13,25 +13,46 @@ class Movie{
     }
 
     public function getNameMovie(){
-        return 'Film: ' . $this->title . ' ' .'Genere: ' . $this->genre;
+        return $this->title;
     }
-
-
 
 }
 
 $independenceDay = new Movie('Independence Day', 'Roland Emmerich', 'fantascienza');
 $independenceDay->year = '1996';
-echo $independenceDay->getNameMovie();
+// echo $independenceDay->getNameMovie() . '<br>';
 
-$interstellar = new Movie('interstellar', 'Christopher Nolan', 'fantascienza');
+$interstellar = new Movie('Interstellar', 'Christopher Nolan', 'fantascienza');
 $interstellar->year = '2014';
+// echo $interstellar->getNameMovie();
 
-
-
-
-var_dump($independenceDay);
-var_dump($interstellar);
-
+$movies = [
+    $independenceDay,
+    $interstellar
+];
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <?php foreach($movies as $film) { ?>
+        <div>
+            <div>Film: <?php echo $film->getNameMovie()?></div>
+            <div>Genere: <?php echo $film->genre?></div>
+            <div>Anno: <?php echo $film->year ?></div>
+            <hr>
+        </div>
+    <?php } ?>
+        
+    
+
+</body>
+</html>
